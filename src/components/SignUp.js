@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './SignUp.css';
 
 function SignUp() {
@@ -8,6 +9,8 @@ function SignUp() {
     password: ''
   });
 
+  const navigate = useNavigate();
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -19,7 +22,8 @@ function SignUp() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Ici, vous enverriez généralement formData au serveur pour l'enregistrement
-    alert('Account created successfully!');
+    
+    navigate('/');
   };
 
   return (

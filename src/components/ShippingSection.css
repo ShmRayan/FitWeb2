@@ -1,0 +1,83 @@
+.shipping-section {
+    background: #fff; /* Couleur de fond plus claire */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .shipping-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #004080; /* Change la couleur pour une meilleure visibilité */
+  }
+  
+  .address-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .address-item p {
+    margin: 0;
+    color: #333;
+  }
+  
+  .address-item button {
+    background: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .address-item button:hover {
+    background: #cc0000;
+  }
+  
+  .new-address-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .new-address-form input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  .new-address-form button {
+    padding: 10px 20px;
+    background: #004080;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .new-address-form button:hover {
+    background: #003060;
+  }
+  
+  .add-new-address {
+    background: #004080;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin-top: 10px;
+  }
+  
+  .add-new-address:hover {
+    background: #003060;
+  }
+  

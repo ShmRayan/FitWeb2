@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next'; // Importation de useTranslation
 import './HomePage.css';
 
-// Déclaration Variable pour Image de background et promotion
 const sportImage = `${process.env.PUBLIC_URL}/assets/background.jpg`;
 const promoImage = `${process.env.PUBLIC_URL}/assets/promotion.jpg`;
 
@@ -10,23 +10,22 @@ const HomePage = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentShoeIndex, setCurrentShoeIndex] = useState(0);
   const [currentAccessoryIndex, setCurrentAccessoryIndex] = useState(0);
+  const { t } = useTranslation(); // Utilisation de useTranslation
 
-  // Déclaration pour les Articles
   const shoes = [
-    { id: 1, name: 'Nike', price: '79.99$', image: '/assets/nike.jpg' },
-    { id: 2, name: 'Adidas', price: '79.99$', image: '/assets/adidas.webp' },
-    { id: 3, name: 'Puma', price: '79.99$', image: '/assets/puma.jpg' },
-    { id: 4, name: 'Abibos', price: '79.99$', image: '/assets/abibos.webp' }
+    { id: 1, name: 'Nike', price: '79.99$', image: `${process.env.PUBLIC_URL}/assets/nike.jpg` },
+    { id: 2, name: 'Adidas', price: '79.99$', image: `${process.env.PUBLIC_URL}/assets/adidas.webp` },
+    { id: 3, name: 'Puma', price: '79.99$', image: `${process.env.PUBLIC_URL}/assets/puma.jpg` },
+    { id: 4, name: 'Abibos', price: '79.99$', image: `${process.env.PUBLIC_URL}/assets/abibos.webp` }
   ];
-
+  
   const accessories = [
-    { id: 1, name: 'Montre', price: '49.99$', image: '/assets/montre.jpg' },
-    { id: 2, name: 'Altere', price: '49.99$', image: '/assets/altere.jpg' },
-    { id: 3, name: 'Casquette', price: '49.99$', image: '/assets/casquette.jpg' },
-    { id: 4, name: 'Debardeur', price: '49.99$', image: '/assets/debardeur.jpg' }
+    { id: 1, name: 'Montre', price: '49.99$', image: `${process.env.PUBLIC_URL}/assets/montre.jpg` },
+    { id: 2, name: 'Altere', price: '49.99$', image: `${process.env.PUBLIC_URL}/assets/altere.jpg` },
+    { id: 3, name: 'Casquette', price: '49.99$', image: `${process.env.PUBLIC_URL}/assets/casquette.jpg` },
+    { id: 4, name: 'Debardeur', price: '49.99$', image: `${process.env.PUBLIC_URL}/assets/debardeur.jpg` }
   ];
 
-  // Effet Pour défilement
   useEffect(() => {
     setIsVisible(true);
     const shoeInterval = setInterval(() => {
@@ -63,30 +62,26 @@ const HomePage = () => {
   return (
     <div className="con">
       <div className={`content-box ${isVisible ? 'visible' : ''}`}>
-        {/* LA BOX NOIRE */}
         <div className="text-section">
-          <h1 className="title">Boostez Votre Performance</h1>
+          <h1 className="title">{t('Boostez Votre Performance')}</h1>
           <p className="description">
-            Découvrez notre sélection de vêtements, chaussures, et accessoires de sport. Qualité, confort et style au top!
+            {t('Découvrez notre sélection de vêtements, chaussures, et accessoires de sport. Qualité, confort et style au top!')}
           </p>
           <p className="description">
-            Chez NovaSport, nous nous engageons à vous fournir les meilleurs équipements pour améliorer votre performance.
-            Que vous soyez un athlète professionnel ou amateur, nos produits sont conçus pour répondre à tous vos besoins.
-            Restez motivé et atteignez vos objectifs avec style et confort.
+            {t('Chez NovaSport, nous nous engageons à vous fournir les meilleurs équipements pour améliorer votre performance. Que vous soyez un athlète professionnel ou amateur, nos produits sont conçus pour répondre à tous vos besoins. Restez motivé et atteignez vos objectifs avec style et confort.')}
           </p>
-          <Link to="/products" className="link-button">Magasinez</Link>
+          <Link to="/products" className="link-button">{t('Magasinez')}</Link>
         </div>
         <div className="image-section">
-          <img src={sportImage} alt="Sport Image" className="styled-image" />
+          <img src={sportImage} alt={t('Sport Image')} className="styled-image" />
         </div>
       </div>
 
       <div className="products-section">
-        <h2 className="section-title" style={{ color: '#FFFFFF', fontStyle: 'italic' }}>Voici des produits soigneusement sélectionnés pour Vous!</h2>
-        <h2 className="section-title" style={{ color: '#00BFFF', fontStyle: 'italic' }}>Chaussures</h2>
-        {/* SECTION DEFILEMENT POUR CHAUSSURES */}
+        <h2 className="section-title" style={{ color: '#FFFFFF', fontStyle: 'italic' }}>{t('Voici des produits soigneusement sélectionnés pour Vous!')}</h2>
+        <h2 className="section-title" style={{ color: '#00BFFF', fontStyle: 'italic' }}>{t('Chaussures')}</h2>
         <div className="product-slider">
-          <button className="arrow-button" onClick={handlePrevShoe}>◀</button>
+          <button className="arrow-button left" onClick={handlePrevShoe}>◀</button>
           <div className="product-grid">
             {visibleShoes.map((shoe) => (
               <div key={shoe.id} className="product-card">
@@ -100,13 +95,12 @@ const HomePage = () => {
               </div>
             ))}
           </div>
-          <button className="arrow-button" onClick={handleNextShoe}>▶</button>
+          <button className="arrow-button right" onClick={handleNextShoe}>▶</button>
         </div>
 
-        <h2 className="section-title" style={{ color: '#00BFFF', fontStyle: 'italic' }}>Accessoires</h2>
-        {/* SECTION DEFILEMENT POUR ACCESSOIRES */}
+        <h2 className="section-title" style={{ color: '#00BFFF', fontStyle: 'italic' }}>{t('Accessoires')}</h2>
         <div className="product-slider">
-          <button className="arrow-button" onClick={handlePrevAccessory}>◀</button>
+          <button className="arrow-button left" onClick={handlePrevAccessory}>◀</button>
           <div className="product-grid">
             {visibleAccessories.map((accessory) => (
               <div key={accessory.id} className="product-card">
@@ -120,41 +114,39 @@ const HomePage = () => {
               </div>
             ))}
           </div>
-          <button className="arrow-button" onClick={handleNextAccessory}>▶</button>
+          <button className="arrow-button right" onClick={handleNextAccessory}>▶</button>
         </div>
       </div>
 
       <div className={`promotion-section ${isVisible ? 'visible' : ''}`}>
-        {/* PROMOTIONS */}
-        <img src={promoImage} alt="Promotion Image" className="promo-image" />
+        <img src={promoImage} alt={t('Promotion Image')} className="promo-image" />
         <div className="promo-content">
-          <h3 className="promo-title">PROMOTIONS EXCLUSIVES</h3>
+          <h3 className="promo-title">{t('PROMOTIONS EXCLUSIVES')}</h3>
           <p className="promo-description">
-            Ne ratez pas nos offres Exceptionnelles sur une sélection de vêtements, chaussures et accessoires !
+            {t('Ne ratez pas nos offres Exceptionnelles sur une sélection de vêtements, chaussures et accessoires !')}
           </p>
-          <Link to="/products" className="link-button">Magasinez</Link>
+          <Link to="/products" className="link-button">{t('Magasinez')}</Link>
         </div>
       </div>
 
       <div className={`about-us-section ${isVisible ? 'visible' : ''}`}>
-        {/* ABOUT US */}
-        <h2 className="about-us-title">About Us</h2>
+        <h2 className="about-us-title">{t('About Us')}</h2>
         <p className="about-us-content">
-          We'd love to hear from you! Here are our contact details:
+          {t("We'd love to hear from you! Here are our contact details:")}
           <br />
-          <strong>Opening Hours:</strong>
+          <strong>{t('Opening Hours:')}</strong>
           <br />
-          - Monday to Friday: 9:00 AM - 6:00 PM
+          {t('- Monday to Friday: 9:00 AM - 6:00 PM')}
           <br />
-          - Saturday: 10:00 AM - 4:00 PM
+          {t('- Saturday: 10:00 AM - 4:00 PM')}
           <br />
-          <strong>Location:</strong>
+          <strong>{t('Location:')}</strong>
           <br />
-          NovaSport Headquarters
+          {t('NovaSport Headquarters')}
           <br />
-          123 Sports Avenue
+          {t('123 Sports Avenue')}
           <br />
-          Ottawa, ON K1A 0B1 Canada
+          {t('Ottawa, ON K1A 0B1 Canada')}
         </p>
       </div>
     </div>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Login.css';
 
 function Login() {
@@ -6,6 +7,7 @@ function Login() {
     email: '',
     password: ''
   });
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -18,7 +20,8 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Ici, vous enverriez généralement formData au serveur pour l'authentification
-    alert('Logged in successfully!');
+    
+    navigate('/');
   };
 
   return (

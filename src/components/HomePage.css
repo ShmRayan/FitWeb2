@@ -67,6 +67,9 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  width: 150px; /* Réduire la largeur */
+  display: block; /* Assurer que le margin auto fonctionne */
+  margin: 20px auto;
   text-align: center;
   text-decoration: none;
 }
@@ -97,6 +100,7 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
+  position: relative
 }
 
 .arrow-button {
@@ -107,12 +111,21 @@
   color: rgb(255, 255, 255);
   box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease-in-out;
-  margin: 0 -250px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-.arrow-button:hover {
-  transform: translateY(-5px);
+.arrow-button.left {
+  left: 400px; /* Ajuster selon vos besoins */
 }
+
+.arrow-button.right {
+  right: 400px; /* Ajuster selon vos besoins */
+}
+
+
+
 
 .product-grid {
   display: flex;

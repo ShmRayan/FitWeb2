@@ -7,6 +7,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   max-width: 800px;
   margin: auto;
+  margin-bottom: 40px;
 }
 
 .breadcrumb {
@@ -90,6 +91,25 @@
   background-color: #003060;
 }
 
+/* Articles.css */
+
+.notification {
+  margin: 20px auto; /* Centrer horizontalement avec auto */
+  padding: 10px;
+  color: #4caf50; /* Couleur du texte vert */
+  animation: fadeInOut 3s ease-in-out;
+  text-align: center;
+  width: fit-content; /* Ajuste la largeur en fonction du contenu */
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -97,4 +117,77 @@
   to {
     opacity: 1;
   }
+}
+.reviews-section {
+  margin-top: 30px;
+  text-align: left;
+}
+
+.review-card {
+  padding: 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.review-card p {
+  margin: 5px 0;
+}
+
+.review-card .delete-review-button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+.review-card .delete-review-button:hover {
+  background-color: #cc0000;
+}
+
+.add-review {
+  margin-top: 30px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.add-review h3 {
+  margin-bottom: 15px;
+}
+
+.add-review textarea {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.add-review select {
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.add-review button {
+  padding: 10px 20px;
+  background-color: #004080;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-review button:hover {
+  background-color: #003060;
 }
